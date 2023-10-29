@@ -1,0 +1,19 @@
+.shop-container {
+    display: flex;
+    padding: 0.5em;
+}
+
+.app-listing-outer {
+    width: 80%;
+}
+
+.app-categories {
+    width: 20%;
+}
+
+.app-shop-filter {
+    display: flex;
+}
+
+.app-listing {
+}

@@ -1,0 +1,40 @@
+#btn-filter-apply {
+    height: 50px;
+    width: 150px;
+    padding: 5px;
+}
+
+#btn-filter-reset {
+    height: 50px;
+    width: 150px;
+    padding: 5px;
+}
+
+.app-filter-input-freesearch {
+    width: 100px;
+    height: 100px;
+}
+
+.app-filter-freesearch-input {
+    height: auto;
+    height: 38px;
+}
+
+.app-filter-container {
+    display: flex;  
+    padding: 5px;
+}
+
+.app-filter-container > div {
+    padding: 5px;
+    width: auto;
+    height: auto;
+}
+
+.app-filter-button-container > * {
+    margin-left: 5px;
+}
+
+#input-group, input-group-sm, mb-3 {
+    max-width: 300px;
+}

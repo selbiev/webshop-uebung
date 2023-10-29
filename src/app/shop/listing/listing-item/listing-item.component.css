@@ -1,0 +1,10 @@
+.listing-item-box-outer {
+    border: 1px solid #ccc;
+    height: 180px;
+    width: 200px;
+    overflow: hidden;
+}
+
+.listing-item-box-image {
+    object-fit: contain;
+}

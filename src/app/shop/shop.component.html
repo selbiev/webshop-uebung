@@ -1,0 +1,17 @@
+<p>this is the shop main page</p>
+
+<div class="shop-outer">
+    <div class="shop-container">
+        <app-categories class="app-categories"></app-categories>
+        <div class="app-listing-outer">
+            <app-filter 
+                class="app-shop-filter" 
+                [displayedProducts]="displayedProducts"
+                [allProducts]="allProducts"
+                (displayedProductsChange)="onDisplayedProductsChange($event)">
+            </app-filter>
+
+            <app-listing [products]="displayedProducts" class="app-listing"></app-listing>
+        </div>
+    </div>
+</div>
