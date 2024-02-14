@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../product.model';
+import {MatSliderModule} from '@angular/material/slider';
 
 @Component({
   selector: 'app-filter',
@@ -12,9 +13,10 @@ export class FilterComponent {
   displayedProducts: Product[] = [];
   @Input()
   allProducts: Product[] = [];
-  @Output() displayedProductsChange: EventEmitter<Product[]> = new EventEmitter<Product[]>();
+  @Output() 
+  displayedProductsChange: EventEmitter<Product[]> = new EventEmitter<Product[]>();
   priceFrom: number = 0;
-  priceTo: number = 99999;
+  priceTo: number = 5000;
   warning: string = "";
   freeFilterString: string = "";
   maxPrice: number = 1000000;

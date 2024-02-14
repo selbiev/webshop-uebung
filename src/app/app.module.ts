@@ -11,6 +11,9 @@ import { CategoriesComponent } from './shop/categories/categories.component';
 import { FilterComponent } from './shop/filter/filter.component';
 import { ListingComponent } from './shop/listing/listing.component';
 import { ListingItemComponent } from './shop/listing/listing-item/listing-item.component';
+import { DataLoadingClient } from './services/data-client.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -19,17 +22,19 @@ import { ListingItemComponent } from './shop/listing/listing-item/listing-item.c
     HeaderComponent,
     FooterComponent,
     ShopComponent,
-    CategoriesComponent,
     FilterComponent,
+    CategoriesComponent,
     ListingComponent,
     ListingItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
-  providers: [],
+  providers: [DataLoadingClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

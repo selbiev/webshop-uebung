@@ -1,6 +1,18 @@
-<div class="app-filter-container">
+<div class="app-filter-container" (keyup.enter)="doFilter()">
     <div class="app-filter-input">
         <div class="app-filter-input-price">
+            <p>Bitte wählen Sie den Preis</p>
+            <mat-slider min=0 max=3000>
+                <input [(ngModel)]="priceFrom" matSliderStartThumb>
+                <input [(ngModel)]="priceTo" matSliderEndThumb>
+            </mat-slider>
+            <p>Min: {{priceFrom}}</p>
+            <p>Max: {{priceTo}}</p>
+        </div>
+        
+
+
+        <!--<div class="app-filter-input-price">
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-sm">Mindestpreis</span>
@@ -13,7 +25,7 @@
                 </div>
                 <input [(ngModel)]="priceTo" class="form-control" aria-label="Höchstpreis" aria-describedby="inputGroup-sizing-sm">
             </div>
-        </div>
+        </div>-->
     </div>
 
     <div class="app-filter-freesearch input-group input-group-sm mb-3">
