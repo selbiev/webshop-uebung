@@ -1,0 +1,12 @@
+.app-categories-listings {
+    cursor: pointer;
+}
+
+.app-categories-listings:hover {
+    font-weight: bold;
+}
+
+.app-categories-listings:after {
+    cursor: pointer;
+}
+

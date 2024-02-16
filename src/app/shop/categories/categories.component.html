@@ -1,5 +1,8 @@
 <div>
-    <div *ngFor="let c of categories">
-        <p>{{c.name}}</p>
+    <div class="app-categories-listings">
+        <p (click)="resetCategories()">All products</p>
+    </div>
+    <div *ngFor="let c of categories" class="app-categories-listings">
+        <p (click)="choseCategory(c)">{{c.name}}</p> 
     </div>
 </div>

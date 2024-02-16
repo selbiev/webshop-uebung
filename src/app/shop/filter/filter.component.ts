@@ -2,19 +2,27 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../product.model';
 import {MatSliderModule} from '@angular/material/slider';
+import { Category } from '../category.model';
+import { CategoryService } from 'src/app/services/category.service';
+import { ProductCategory } from '../product-category.model';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css']
+  styleUrls: ['./filter.component.css'],
+  providers: [CategoryService]
 })
 export class FilterComponent {
   @Input()
   displayedProducts: Product[] = [];
   @Input()
   allProducts: Product[] = [];
+  @Input()
+  chosenCategory: Category = new Category(".","","");
   @Output() 
   displayedProductsChange: EventEmitter<Product[]> = new EventEmitter<Product[]>();
+  categories: Category[] = [];
+  productCategories: ProductCategory[] = [];
   priceFrom: number = 0;
   priceTo: number = 5000;
   warning: string = "";
@@ -22,18 +30,25 @@ export class FilterComponent {
   maxPrice: number = 1000000;
   minPrice: number = 0;
 
+  constructor(private categoryService: CategoryService) {
+    this.categories = this.categoryService.getAllCategories();
+    this.productCategories = this.categoryService.getAllProductCategories();
+  }
+
   doFilter() {
+    //warning: 
     this.warning = ""
     this.resetProducts()
-    this.filterByPriceRange()
     this.filterByFreeText()
+    this.filterByPriceRange()
+    this.emitEventDisplayProducts()
   }
 
   filterByFreeText() {
-    this.displayedProducts = this.displayedProducts.filter(
+    //todo this.allproducts besser
+    this.displayedProducts = this.allProducts.filter(
       (prod: { description: string; tags: string[] }) => 
         prod.description.toLowerCase().includes(this.freeFilterString))
-    this.emitEventDisplayProducts();
   }
 
   private emitEventDisplayProducts() {
@@ -41,13 +56,11 @@ export class FilterComponent {
   }
 
   filterByPriceRange(){
-    console.log("price from: " + this.priceFrom + ", price to: " + this.priceTo)
     if(this.priceFrom === 0 && this.priceTo === 0) {
       return
     }
     if(this.priceFrom > this.priceTo) {
       this.warning = "Mindestpreis muss tiefer als Höchstpreis sein"
-      console.log(this.warning + ", Mindestpreis: " + this.priceFrom + ", Höchstpreis " + this.priceTo)
       alert(this.warning)
       return
     }
@@ -55,7 +68,6 @@ export class FilterComponent {
       (prod: { price: number; }) => 
         prod.price >= this.priceFrom
         && prod.price <= this.priceTo)
-      this.emitEventDisplayProducts()
   }
 
   resetProducts() {

@@ -14,7 +14,6 @@ export class ProductService {
         .subscribe({
             next(product) {
                 allProducts.push(product)
-                console.log("product was pushed to the list: " + product.description)
             }
         });
         return allProducts;

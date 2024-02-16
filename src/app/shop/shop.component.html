@@ -2,10 +2,13 @@
 
 <div class="shop-outer">
     <div class="shop-container">
-        <app-categories class="app-categories"></app-categories>
+        <app-categories class="app-categories"
+            (categoriesChosenChange)="onCategoriesChosenChange($event)"
+        ></app-categories>
         <div class="app-listing-outer">
             <app-filter 
                 class="app-shop-filter" 
+                [chosenCategory]="chosenCategory"
                 [displayedProducts]="displayedProducts"
                 [allProducts]="allProducts"
                 (displayedProductsChange)="onDisplayedProductsChange($event)">
