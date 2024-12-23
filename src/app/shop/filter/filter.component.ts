@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../product.model';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
 import { Category } from '../category.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductCategory } from '../product-category.model';

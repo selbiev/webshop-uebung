@@ -14,6 +14,9 @@ import { ListingItemComponent } from './shop/listing/listing-item/listing-item.c
 import { DataLoadingClient } from './services/data-client.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSliderModule} from '@angular/material/slider';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import {MatSliderModule} from '@angular/material/slider';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatDividerModule,
+    MatListModule,
+    MatExpansionModule
   ],
   providers: [DataLoadingClient],
   bootstrap: [AppComponent]
